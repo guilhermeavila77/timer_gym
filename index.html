@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Gym</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <body>
+        <header class="header">
+            <h1>TIMER GYM</h1>
+        </header>
+        <main>
+            <div class="timer-stl">
+                <h1 id='timer'>00:00</h1>
+                <button class="str-button" onclick="iniciar()">Start</button>
+            </div>
+            <div class="timer-stl">
+                <h2>Qauntidade de Series</h2>
+                <input type="text" name="series" id="series" placeholder="Series" class="inputs">
+                <h2>Tempo de atividade/descanso</h2>
+                <div>
+                    <input type="text" name="tempoMin" id="tempoMin" placeholder="Min" class="inputs">
+                    <input type="text" name="tempoSec" id="tempoSec" placeholder="Sec" class="inputs">
+                </div>
+                <h1 id='cont'></h1>
+            </div>
+        </main>
+        <script src="script.js"></script>
+    </body>
+</body>
+
+</html>
