@@ -1,3 +1,6 @@
+// proxima melhoria
+// sinalizar quando é o momento de atividade e quando é o momento de descanso com uma animação
+
 var sec = 0
 var min = 0
 
@@ -9,6 +12,7 @@ var temposec = 0
 var tempogeral = 0
 var tempoatual = 0
 var minatual = 0
+var contagemarredondada = 0
 
 var interval
 
@@ -34,23 +38,33 @@ function stop() {
     clearInterval(interval)
     sec = 0
     min = 0
+    tempoatual = 0
     document.getElementById('timer').innerText = '00:00'
-
 }
 
 function timer() {
-    for (var contagem = 0; contagem <= parseInt(series); contagem++) {
-        for (var tempoatual = 0; tempoatual < tempogeral; tempoatual++) {
-            sec = sec + 1
-            if (sec == 60) {
-                min = min + 1
-                sec = 0
-            }
-            console.log("tempo atual " + tempoatual)
-            document.getElementById('timer').innerText = padronizar(min) + ':' + padronizar(sec)
+
+    if (tempoatual < tempogeral) {
+        tempoatual = tempoatual + 1
+        sec = sec + 1
+        if (sec == 60) {
+            min = min + 1
+            sec = 0
         }
-        console.log('Contagem ' + contagem)
-        document.getElementById('cont').innerText = contagem
+        if (tempoatual == tempogeral) {
+            contagem = contagem + 1 / 2
+            contagemarredondada = Math.round(contagem)
+            console.log('Contagem ' + contagem)
+            console.log('Contagem arredondada ' + contagemarredondada)
+            stop()
+            start()
+        }
+        if (contagem == series) {
+            stop()
+        }
+        console.log("tempo atual " + tempoatual)
+        document.getElementById('timer').innerText = padronizar(min) + ':' + padronizar(sec)
+        document.getElementById('cont').innerText = contagemarredondada
     }
 }
 
